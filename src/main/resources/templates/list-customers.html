@@ -18,6 +18,13 @@
                     <th>Last Name</th>
                     <th>Email</th>
                 </tr>
+                <tbody>
+                <tr th:each="item : ${customers}">
+                    <td><span th:text="${item.firstName}">  </span></td>
+                    <td><span th:text="${item.lastName}">  </span></td>
+                    <td><span th:text="${item.email}">  </span></td>
+                </tr>
+                </tbody>
             </table>
         </div>
     </div>
