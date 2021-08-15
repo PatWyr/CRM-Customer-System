@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+        <h1>Form</h1>
+        <form action="#" th:action="@{customer/saveCustomer}" th:object="${customer}" >
+            <table>
+                <tr>
+                    <p>First Name: <input type="text" th:field="${customer.firstName}" /></p>
+                </tr>
+                <tr>
+                    <p>Last Name: <input type="text" th:field="${customer.lastName}" /></p>
+                </tr>
+                <tr>
+                    <p>Email : <input type="text" th:field="${customer.email}" /></p>
+                </tr>
+            </table>
+            <input type="submit" value="Submit" class = 'add-button' />
+            <input type="reset" value="Reset" class = 'add-button' />
+        </form>
+
+</body>
+</html>
