@@ -19,12 +19,16 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Action</th>
                 </tr>
                 <tbody>
                 <tr th:each="item : ${customers}">
                     <td><span th:text="${item.firstName}">  </span></td>
                     <td><span th:text="${item.lastName}">  </span></td>
                     <td><span th:text="${item.email}">  </span></td>
+                    <td><a th:href="@{/customer/showFormForUpdate(customerId=${item.id})}">Update</a>
+                        <a th:href="@{/customer/delete(customerId=${item.id})}">Delete</a></td>
+
                 </tr>
                 </tbody>
             </table>

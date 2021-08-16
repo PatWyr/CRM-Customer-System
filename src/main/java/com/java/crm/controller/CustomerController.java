@@ -40,7 +40,22 @@ public class CustomerController {
 
     @PostMapping("/saveCustomer")
     public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
-        System.out.println("Siemka");
+        customerService.saveCustomer(theCustomer);
+        return "redirect:/customer/list";
+    }
+
+    @GetMapping("/showFormForUpdate")
+    public String updateCustomer(@RequestParam("customerId") int Id, Model theModel) {
+        Customer customer = customerService.getCustomerRepository().getById(Id);
+        theModel.addAttribute("customer",customer);
+        customerService.updateCustomer(Id);
+        return "add-form";
+    }
+
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam("customerId") int Id, Model theModel) {
+        Customer customer = customerService.getCustomerRepository().findById(Id).get();
+        customerService.getCustomerRepository().delete(customer);
         return "redirect:/customer/list";
     }
 }

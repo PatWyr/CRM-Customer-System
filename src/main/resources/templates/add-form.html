@@ -7,7 +7,7 @@
 </head>
 <body>
         <h1>Form</h1>
-        <form action="#" th:action="@{customer/saveCustomer}" th:object="${customer}" >
+        <form action="#" method="post" th:action="@{/customer/saveCustomer}" th:object="${customer}" >
             <table>
                 <tr>
                     <p>First Name: <input type="text" th:field="${customer.firstName}" /></p>
